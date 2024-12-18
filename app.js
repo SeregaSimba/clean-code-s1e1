@@ -15,9 +15,10 @@ const completedTasksHolder=document.getElementById("completed-tasks");//complete
 
 
 //New task list item
-const createNewTaskElement=function(taskString){
+const createNewTaskElement = function(taskString) {
 
     const listItem=document.createElement("li");
+    listItem.className = 'list-Item';
 
     //input (checkbox)
     const checkBox=document.createElement("input");//checkbx
