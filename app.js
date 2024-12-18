@@ -49,7 +49,7 @@ const createNewTaskElement = function(taskString) {
 
 
 
-const addTask=function(){
+const addTask=function() {
     console.log("Add Task...");
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
@@ -65,25 +65,25 @@ const addTask=function(){
 
 //Edit an existing task.
 
-const editTask=function(){
+const editTask=function() {
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
 
 
-    const listItem=this.parentNode;
+    const listItem = this.parentNode;
 
-    const editInput=listItem.querySelector('input[type=text]');
-    const label=listItem.querySelector("label");
-    const editBtn=listItem.querySelector(".edit");
-    const containsClass=listItem.classList.contains("edit-Mode");
+    const editInput = listItem.querySelector('input[type=text]');
+    const label = listItem.querySelector("label");
+    const editBtn = listItem.querySelector(".edit");
+    const containsClass = listItem.classList.contains("edit-Mode");
     //If class of the parent is .editmode
-    if(containsClass){
+    if(containsClass) {
 
         //switch to .editmode
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
-    }else{
+    }else {
         editInput.value=label.innerText;
         editBtn.innerText="Save";
     }
@@ -94,11 +94,11 @@ const editTask=function(){
 
 
 //Delete task.
-const deleteTask=function(){
+const deleteTask=function() {
     console.log("Delete Task...");
 
-    const listItem=this.parentNode;
-    const ul=listItem.parentNode;
+    const listItem = this.parentNode;
+    const ul = listItem.parentNode;
     //Remove the parent list item from the ul.
     ul.removeChild(listItem);
 
@@ -106,30 +106,30 @@ const deleteTask=function(){
 
 
 //Mark task completed
-const taskCompleted=function(){
+const taskCompleted = function() {
     console.log("Complete Task...");
 
     //Append the task list item to the #completed-tasks
-    let listItem=this.parentNode;
+    let listItem = this.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
 }
 
 
-const taskIncomplete=function(){
+const taskIncomplete = function() {
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
-    let listItem=this.parentNode;
+    let listItem = this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
 
 
 
-const ajaxRequest=function(){
+const ajaxRequest = function() {
     console.log("AJAX Request");
 }
 
@@ -137,30 +137,30 @@ const ajaxRequest=function(){
 
 
 //Set the click handler to the addTask function.
-addButton.onclick=addTask;
+addButton.onclick = addTask;
 addButton.addEventListener("click",addTask);
 addButton.addEventListener("click",ajaxRequest);
 
 
-const bindTaskEvents=function(taskListItem,checkBoxEventHandler){
+const bindTaskEvents = function(taskListItem,checkBoxEventHandler) {
     console.log("bind list item events");
 //select ListItems children
-    const checkBox=taskListItem.querySelector("input[type=checkbox]");
-    const editButton=taskListItem.querySelector("button.edit");
-    const deleteButton=taskListItem.querySelector("button.delete");
+    const checkBox = taskListItem.querySelector("input[type=checkbox]");
+    const editButton = taskListItem.querySelector("button.edit");
+    const deleteButton = taskListItem.querySelector("button.delete");
 
 
     //Bind editTask to edit button.
-    editButton.onclick=editTask;
+    editButton.onclick = editTask;
     //Bind deleteTask to delete button.
-    deleteButton.onclick=deleteTask;
+    deleteButton.onclick = deleteTask;
     //Bind taskCompleted to checkBoxEventHandler.
-    checkBox.onchange=checkBoxEventHandler;
+    checkBox.onchange = checkBoxEventHandler;
 }
 
 //cycle over incompleteTaskHolder ul list items
 //for each list item
-for (let i=0; i<incompleteTaskHolder.children.length;i++){
+for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
 
     //bind events to list items chldren(tasksCompleted)
     bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
@@ -170,7 +170,7 @@ for (let i=0; i<incompleteTaskHolder.children.length;i++){
 
 
 //cycle over completedTasksHolder ul list items
-for (let i=0; i<completedTasksHolder.children.length;i++){
+for (let i = 0; i < completedTasksHolder.children.length; i++){
     //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
