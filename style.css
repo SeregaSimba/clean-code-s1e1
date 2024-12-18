@@ -6,18 +6,18 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-.aaa {
+.logo {
     width: 500px;
     margin: 0 auto;
     display: block;
     text-align: right;
 }
 
-.aaa img {
+.logo img {
     width: 100%;
 }
 
-.aaa .more-inf {
+.logo .more-inf {
     font-family: "fantasy", "cursive";
 }
 
@@ -168,7 +168,7 @@ ul li.edit-Mode label {
 }
 
 @media (max-width: 768px) {
-    .aaa {
+    .logo {
         text-align: center;
     }
 }
