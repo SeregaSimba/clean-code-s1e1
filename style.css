@@ -21,6 +21,12 @@ body {
     font-family: fantasy, cursive;
 }
 
+.header-conteiner {
+    display: block;
+    width: 500px;
+    margin: 0 auto 0;
+}
+
 .centered-main-page-element {
     display: block;
     width: 500px;
