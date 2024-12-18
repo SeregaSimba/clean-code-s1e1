@@ -17,38 +17,34 @@ const completedTasksHolder=document.getElementById("completed-tasks");//complete
 //New task list item
 const createNewTaskElement = function(taskString) {
 
-    const listItem=document.createElement("li");
+    const listItem = document.createElement("li");
     listItem.className = 'list-Item';
 
     //input (checkbox)
-    const checkBox=document.createElement("input");//checkbx
+    const checkBox = document.createElement("input");//checkbx
+    checkBox.type="checkbox";
     //label
-    const label=document.createElement("label");//label
+    const label = document.createElement("label");//label
+    label.innerText = taskString;
+    label.className = 'task';
     //input (text)
-    const editInput=document.createElement("input");//text
+    const editInput = document.createElement("input");//text
+    editInput.type="text";
+    editInput.className="task";
     //button.edit
     const editButton=document.createElement("button");//edit button
+    editButton.innerText="Edit";
+    editButton.className="edit";
 
     //button.delete
     const deleteButton=document.createElement("button");//delete button
-    const deleteButtonImg=document.createElement("img");//delete button image
-
-    label.innerText=taskString;
-    label.className='task';
-
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
-
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
-
     deleteButton.className="delete";
+
+    const deleteButtonImg=document.createElement("img");//delete button image
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
-
-
+    //Each elements, needs appending
+    //innerText encodes special characters, HTML does not.
     //and appending.
     listItem.appendChild(checkBox);
     listItem.appendChild(label);
