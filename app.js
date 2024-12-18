@@ -49,7 +49,7 @@ const createNewTaskElement = function(taskString) {
 
 
 
-const addTask=function() {
+const addTask = function() {
     console.log("Add Task...");
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
@@ -65,7 +65,7 @@ const addTask=function() {
 
 //Edit an existing task.
 
-const editTask=function() {
+const editTask = function() {
     console.log("Edit Task...");
     console.log("Change 'edit' to 'save'");
 
@@ -96,24 +96,18 @@ const editTask=function() {
 //Delete task.
 const deleteTask=function() {
     console.log("Delete Task...");
-
     const listItem = this.parentNode;
     const ul = listItem.parentNode;
-    //Remove the parent list item from the ul.
     ul.removeChild(listItem);
-
 }
 
 
 //Mark task completed
 const taskCompleted = function() {
     console.log("Complete Task...");
-
-    //Append the task list item to the #completed-tasks
     let listItem = this.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
-
 }
 
 
@@ -124,25 +118,21 @@ const taskIncomplete = function() {
     //Append the task list item to the #incompleteTasks.
     let listItem = this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
-    bindTaskEvents(listItem,taskCompleted);
+    bindTaskEvents(listItem, taskCompleted);
 }
-
-
 
 const ajaxRequest = function() {
     console.log("AJAX Request");
 }
-
 //The glue to hold it all together.
-
 
 //Set the click handler to the addTask function.
 addButton.onclick = addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
 
 
-const bindTaskEvents = function(taskListItem,checkBoxEventHandler) {
+const bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
     console.log("bind list item events");
 //select ListItems children
     const checkBox = taskListItem.querySelector("input[type=checkbox]");
