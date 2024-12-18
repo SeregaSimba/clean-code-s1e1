@@ -160,7 +160,7 @@ img:hover {
 /* Completed */
 
 #completed-tasks 
-.label-compt {
+label {
     text-decoration: line-through;
     color: #888;
 }
